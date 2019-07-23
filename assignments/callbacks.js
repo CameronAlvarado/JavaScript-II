@@ -2,7 +2,7 @@
 
 const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
-/* 
+ /*
 
   //Given this problem: 
   
@@ -12,7 +12,7 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
   // Potential Solution:
 
-  // Higher order function using "cb" as the call back
+   //Higher order function using "cb" as the call back
   function firstItem(arr, cb) {
     return cb(arr[0]);
   }
@@ -24,27 +24,75 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 */
 
-
 function getLength(arr, cb) {
   // getLength passes the length of the array into the callback.
 }
+
+function getLength(arr, cb) {
+  return cb(arr.length);
+}
+
+getLength(items, function(length) {
+  console.log(length);
+});
 
 function last(arr, cb) {
   // last passes the last item of the array into the callback.
 }
 
+function last(arr, cb) {
+  return cb(arr[arr.length - 1]);
+}
+
+last(items, function(cb) {
+  console.log(cb)
+})
+
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
 }
+
+function sumNums(x, y, cb) {
+  return cb(x + y);
+}
+
+sumNums(3, 5, function(cb) {
+  console.log(cb)
+});
 
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
 }
 
+function multiplyNums(x, y, cb) {
+  return cb(x * y);
+}
+
+multiplyNums(3, 4, function(cb) {
+  console.log(cb)
+});
+
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
 }
+
+function contains(item, list, cb) {
+  for (i=0; i < item.length; i++) {
+    if (list[i] === item) {
+      return cb(true);
+    }
+  }
+    for (i=0; i < item.length; i++) {
+      if (list[i] !== item) {
+        return cb(false);
+    }
+  }
+}
+
+contains("yo-yo", items, function(cb) {
+  console.log(cb)
+});
 
 /* STRETCH PROBLEM */
 
